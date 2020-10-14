@@ -1,0 +1,35 @@
+/**
+  Named colors
+ */
+
+$-violet: #70587c;
+$-apricot: #ffc482;
+$-steel: #c7d3d4;
+$-snow: #fcffff;
+
+
+/**
+	Main colors and accessor function
+ */
+
+$colors: (
+  primary: $-violet,
+  accent: $-apricot,
+  neutral: $-steel,
+  white: $-snow,
+);
+
+@function color($key) { @return map-get($colors, $key); }
+@function neutral($key) { @return color-level(color(neutral), $key); }
+
+
+/**
+	Additional colors from color scales + headings + text colors
+ */
+
+$colors: map-merge($colors,
+  (
+    black: neutral(900),
+    light: neutral(50),
+  )
+);

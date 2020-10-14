@@ -1,0 +1,27 @@
+@mixin contrast($background-color, $dark: color(black), $light: color(white)) {
+	background-color: $background-color;
+	color: contrast($background-color, $dark, $light);
+}
+
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder { color: $color; }
+	&::-moz-placeholder { color: $color; }
+	&:-ms-input-placeholder { color: $color; }
+	&:-moz-placeholder { color: $color; }
+	&::placeholder { color: $color; font-weight: 300; letter-spacing: .4px; }
+}
+
+@mixin position($position: relative, $top: auto, $right: auto, $bottom: auto, $left: auto, $z-index: auto) {
+	bottom: $bottom;
+	left: $left;
+	position: $position;
+	right: $right;
+	top: $top;
+	z-index: $z-index;
+}
+
+@mixin respond-to($key) {
+  @media (min-width: map-get($breakpoints, $key)) {
+    @content;
+  }
+}

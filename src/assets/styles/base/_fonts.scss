@@ -1,0 +1,47 @@
+/**
+	Font import
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+
+/**
+	Font families, sizes, weights, and accessor function
+ */
+
+$font: (
+  family: (
+    code: #{'Source Code Pro', monospace},
+    text: #{'Source Sans Pro', monospace},
+    title: #{'Source Sans Pro', monospace},
+  ),
+
+  size: (
+    root: 10px,
+    code: 1.2rem,
+    text: 1.6rem,
+    h1: 4rem,
+    h2: 3.4rem,
+    h3: 2.8rem,
+    h4: 2.4rem,
+    h5: 2rem,
+    h6: 1.8rem,
+  ),
+
+  weight: (
+    light: 300,
+    normal: 400,
+    semibold: 600,
+    bold: 700,
+  ),
+);
+
+@function font($keys...) {
+  $value: $font;
+
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+
+  @return $value;
+}

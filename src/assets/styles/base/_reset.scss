@@ -1,0 +1,176 @@
+* {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+	border: 0;
+	border-radius: 0;
+	box-sizing: border-box;
+	letter-spacing: .2px;
+	margin: 0;
+	padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html {
+  @include contrast(color(light));
+
+	font-family: font(family, text);
+	font-size: font(size, root);
+	font-weight: font(weight, normal);
+	line-height: 1.25;
+}
+
+body {
+	background: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: 1.6rem;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+a,
+a.link {
+	color: color(primary);
+	cursor: pointer;
+  opacity: 1;
+	text-decoration: none;
+
+	&:hover,
+  &.hover {
+		color: color(primary);
+    opacity: .85;
+		text-decoration: underline;
+	}
+
+	&.link-active {
+		font-weight: font(weight, semibold);
+	}
+}
+
+h1, h2, h3, h4, h5, h6, .title, .subtitle {
+	color: inherit;
+	font-family: font(family, title);
+	font-weight: font(weight, semibold);
+  line-height: 1.25;
+}
+
+h1 { font-size: font(size, h1); }
+h2 { font-size: font(size, h2); }
+h3 { font-size: font(size, h3); }
+h4 { font-size: font(size, h4); }
+h5 { font-size: font(size, h5); }
+h6 { font-size: font(size, h6); }
+
+input,
+label,
+select,
+textarea {
+	border-radius: 0;
+	display: inline-block;
+  font: inherit;
+  line-height: inherit;
+	vertical-align: middle;
+}
+
+textarea {
+	resize: none;
+}
+
+ol,
+ul {
+	margin: 1rem 2rem;
+
+	> li {
+		margin: .25rem 0;
+	}
+}
+
+
+nav,
+.nav {
+  ul,
+  ul li,
+  ul li a {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul,
+  ul li a {
+    display: block;
+  }
+
+  ul { list-style: none; }
+  ul li { display: inline-block; }
+}
+
+ol,
+ul {
+  margin: 1rem 2rem;
+
+  li {
+    margin: .5rem 0;
+  }
+}
+
+
+table,
+.table {
+  border-collapse: collapse;
+}
+
+
+/**
+	Footer, header, main sections
+ */
+
+.footer,
+.header,
+.main {
+  padding: 2rem;
+}
+
+.footer {
+  @include contrast(color(black));
+}
+
+.header {
+  @include contrast(color(white));
+}
+
+.main {
+  background: none;
+  color: inherit;
+}
+
+
+/**
+	Ensure footer always stays at the bottom
+ */
+
+html,
+body,
+app-root {
+  min-height: 100vh;
+}
+
+body,
+app-root {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer,
+.header,
+.main {
+  flex-shrink: 0;
+}
+
+.main {
+  flex-grow: 1;
+}

@@ -1,0 +1,42 @@
+.table {
+  font-size: 1.2rem;
+  margin: 0 0 1.5rem;
+  min-width: 80rem;
+  table-layout: fixed;
+  width: 100%;
+
+
+  td,
+  th {
+    text-align: left;
+  }
+
+  td {
+    padding: .5rem 1rem;
+  }
+
+  th {
+    font-weight: font(weight, semibold);
+    padding: 1rem;
+  }
+
+
+  /* row border and background */
+  tr {
+    border: 1px solid neutral(100);
+    margin: -1px 0 0;
+
+    &:nth-child(odd) td {
+      background: neutral(50);
+    }
+  }
+}
+
+
+/**
+  Responsive table container
+ */
+
+.table-container {
+  overflow-x: auto;
+}
