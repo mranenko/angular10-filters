@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
+/* app pipes */
+import {FilterCountryPipe} from '../../pipes/filter-country.pipe';
+import {FilterDateSincePipe} from '../../pipes/filter-date-since.pipe';
+
 /* app services */
 import {MembersService} from '../../services/members.service';
 import {CountriesService} from '../../services/countries.service';
@@ -8,16 +12,18 @@ import {CountriesService} from '../../services/countries.service';
 @Component({
   selector: 'app-members-page',
   templateUrl: './members-page.component.html',
-  styleUrls: ['./members-page.component.scss']
 })
 export class MembersPageComponent implements OnInit {
   countries: any[];
   members: any[];
+  membersFiltered: any[];
 
   /* selected filters */
   filters = {};
 
-  constructor(private countriesService: CountriesService,
+  constructor(private filterCountryPipe: FilterCountryPipe,
+              private filterDateSincePipe: FilterDateSincePipe,
+              private countriesService: CountriesService,
               private membersService: MembersService) {
   }
 
@@ -32,6 +38,10 @@ export class MembersPageComponent implements OnInit {
     Event handlers
    */
 
+  onFiltersChange(): void {
+    this.filtersApply();
+  }
+
   onFiltersReset(): void {
     this.filtersReset();
   }
@@ -41,6 +51,11 @@ export class MembersPageComponent implements OnInit {
     Private methods
    */
 
+  private filtersApply(): void {
+    this.membersFiltered = this.filterCountryPipe.transform(this.members, this.filters.country);
+    this.membersFiltered = this.filterDateSincePipe.transform(this.membersFiltered, this.filters.dateSince);
+  }
+
   private filtersReset(): void {
     this.filters = {
       country: '',
@@ -48,5 +63,7 @@ export class MembersPageComponent implements OnInit {
       firstName: '',
       lastName: '',
     };
+
+    this.filtersApply();
   }
 }

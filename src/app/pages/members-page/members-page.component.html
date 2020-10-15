@@ -24,9 +24,13 @@
       <div class="col-sm">
         <div class="form-group">
           <label for="filterCountry">Country</label>
-          <select id="filterCountry" [(ngModel)]="filters.country">
+          <select id="filterCountry"
+                  [(ngModel)]="filters.country"
+                  (change)="onFiltersChange()">
             <option value="">All</option>
-            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+            <option *ngFor="let country of countries" [value]="country">{{
+              country }}
+            </option>
           </select>
         </div>
       </div>
@@ -34,13 +38,17 @@
       <div class="col-sm">
         <div class="form-group">
           <label for="filterSince">Member since</label>
-          <input id="filterSince" type="date" [(ngModel)]="filters.dateSince">
+          <input id="filterSince" type="date"
+                 [(ngModel)]="filters.dateSince"
+                 (change)="onFiltersChange()">
         </div>
       </div>
 
       <div class="col-sm-auto">
         <div class="form-group">
-          <button class="button button-link" (click)="onFiltersReset()">Reset filters</button>
+          <button class="button button-link" (click)="onFiltersReset()">
+            Reset filters
+          </button>
         </div>
       </div>
     </div>
@@ -51,6 +59,7 @@
 <div class="card">
   <div class="card-header">
     <h3 class="title">Members</h3>
+    {{ this.membersFiltered.length }} of {{ this.members.length }}
   </div>
 
   <div class="card-main">
@@ -64,12 +73,14 @@
           <th>Member since</th>
         </tr>
 
-        <tr *ngFor="let member of members | filterCountry: filters.country">
+        <tr *ngFor="let member of members |
+        filterCountry: filters.country |
+        filterDateSince: filters.dateSince">
           <td>{{ member['last-name'] }}, {{ member['first-name'] }}</td>
           <td>{{ member['username'] }}</td>
           <td>{{ member['email'] }}</td>
           <td>{{ member['country'] }}</td>
-          <td>{{ member['since'] | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ member['date-since'] | date: 'yyyy-MM-dd' }}</td>
         </tr>
       </table>
     </div>

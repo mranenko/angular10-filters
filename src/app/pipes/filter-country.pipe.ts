@@ -11,10 +11,8 @@ export class FilterCountryPipe implements PipeTransform {
     }
     else {
       return items.filter(item =>
-        (item['country'].toLowerCase() === country.toLowerCase())
+        (item.country.toLowerCase() === country.toLowerCase())
       );
     }
-
-    console.log(`filter country: ${country}`);
   }
 }
