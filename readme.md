@@ -1,4 +1,12 @@
+<img src="src/assets/images/screenshots/filters-screenshot.png" alt="" style="margin: 0 auto; max-width: 100%;" />
+
+
 # Angular 10 filters
+
+This project uses custom pipes to filter data.
+
+
+## Angular version
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
 
