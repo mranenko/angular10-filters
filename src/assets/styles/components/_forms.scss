@@ -1,0 +1,50 @@
+/**
+  Default input styles
+ */
+
+input {
+  border: 1px solid neutral(100);
+  padding: .4rem .9rem;
+}
+
+
+/**
+  Drop-downs
+ */
+
+.select,
+select {
+  height: 3rem;
+}
+
+select {
+  border: 1px solid neutral(100);
+  padding: .4rem .9rem;
+}
+
+.select {
+  border: 1px solid neutral(100);
+  padding: 0;
+
+  select {
+    border: 0;
+    height: 2.8rem;
+  }
+}
+
+
+/**
+  Group of inputs and optional labels
+ */
+
+.form-group {
+  margin: 0 0 1rem;
+
+  input,
+  select,
+  .select,
+  label,
+  .label {
+    width: 100%;
+  }
+}

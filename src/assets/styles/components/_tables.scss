@@ -16,6 +16,8 @@
   }
 
   th {
+    @include contrast(neutral(100));
+
     font-weight: font(weight, semibold);
     padding: 1rem;
   }
