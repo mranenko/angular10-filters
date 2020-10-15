@@ -6,13 +6,13 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class FilterDateSincePipe implements PipeTransform {
   transform(items: any[], dateSince: string): any[] {
-    if (items.length === 0 || dateSince === '') {
+    /* no data or no date filter specified */
+    if (items.length === 0 || dateSince === undefined || dateSince === '') {
       return items;
     }
-    else {
-      return items.filter(item =>
-        (new Date(item['date-since']).getTime() >= new Date(dateSince).getTime())
-      );
-    }
+
+    return items.filter(item =>
+      (new Date(item['date-since']).getTime() >= new Date(dateSince).getTime())
+    );
   }
 }
