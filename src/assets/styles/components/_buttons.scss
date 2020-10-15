@@ -1,0 +1,21 @@
+button,
+.button {
+  @include contrast(color(neutral));
+
+  font-size: 1.3rem;
+  line-height: 2rem;
+  padding: .5rem 1rem;
+}
+
+
+button.button-link,
+.button.button-link {
+  background: none;
+  color: color(primary);
+  text-decoration: none;
+
+  &:hover,
+  &.hover {
+    text-decoration: underline;
+  }
+}

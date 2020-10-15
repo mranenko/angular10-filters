@@ -4,7 +4,46 @@
   </div>
 
   <div class="filter-main">
-    Under construction.
+    <div class="row row-align-bottom">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="filterLastName">Last name</label>
+          <input id="filterLastName" type="search"
+                 [(ngModel)]="filters.lastName">
+        </div>
+      </div>
+
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="filterFirstName">First name</label>
+          <input id="filterFirstName" type="search"
+                 [(ngModel)]="filters.firstName">
+        </div>
+      </div>
+
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="filterCountry">Country</label>
+          <select id="filterCountry" [(ngModel)]="filters.country">
+            <option value="">All</option>
+            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="filterSince">Member since</label>
+          <input id="filterSince" type="date" [(ngModel)]="filters.dateSince">
+        </div>
+      </div>
+
+      <div class="col-sm-auto">
+        <div class="form-group">
+          <button class="button button-link" (click)="onFiltersReset()">Reset filters</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -25,7 +64,7 @@
           <th>Member since</th>
         </tr>
 
-        <tr *ngFor="let member of members">
+        <tr *ngFor="let member of members | filterCountry: filters.country">
           <td>{{ member['last-name'] }}, {{ member['first-name'] }}</td>
           <td>{{ member['username'] }}</td>
           <td>{{ member['email'] }}</td>

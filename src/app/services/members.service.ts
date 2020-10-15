@@ -8,7 +8,7 @@ export class MembersService {
   constructor() {
   }
 
-  getMembers(): [] {
+  getMembers(): any[] {
     return [{
       'first-name': 'Verney',
       'last-name': 'Lindner',

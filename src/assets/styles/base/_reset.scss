@@ -33,16 +33,26 @@ body {
 }
 
 a,
+.link,
+button,
+.button {
+  cursor: pointer;
+  opacity: 1;
+
+  &:hover,
+  &.hover {
+    opacity: .85;
+  }
+}
+
+a,
 a.link {
 	color: color(primary);
-	cursor: pointer;
-  opacity: 1;
 	text-decoration: none;
 
 	&:hover,
   &.hover {
 		color: color(primary);
-    opacity: .85;
 		text-decoration: underline;
 	}
 

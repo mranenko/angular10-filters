@@ -1,20 +1,26 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import { MembersPageComponent } from './pages/members-page/members-page.component';
+import {NgModule} from '@angular/core';
+
+/* app pages */
+import {MembersPageComponent} from './pages/members-page/members-page.component';
+
+/* app pipes */
+import {FilterCountryPipe} from './pipes/filter-country.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MembersPageComponent
+    MembersPageComponent,
+    FilterCountryPipe,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
