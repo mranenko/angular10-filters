@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Install dependencies by running:
 
 <pre>
-npm install
+yarn install
 </pre>
 
 Then run a dev server:
@@ -24,3 +24,14 @@ http://localhost:1234/
 </pre>
 
 (Server port can be changed in angular.json.)
+
+
+## Filters implementation
+
+Data filtering is implemented using custom pipes (see <code>src/app/pipes/</code>).
+
+There are examples of using these pipes in
+<code>src/app/pages/members-page/members-page.component.html</code> (to filter data) as well as
+<code>src/app/pages/members-page/members-page.component.ts</code> (to get the number of filtered items).
+For the pipes to be accessible in the typescript file, they were added to the list of providers in
+<code>src/app/app.module.ts</code>.

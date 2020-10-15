@@ -30,8 +30,9 @@
                   [(ngModel)]="filters.country"
                   (change)="onFiltersChange()">
             <option value="">All</option>
-            <option *ngFor="let country of countries" [value]="country">{{
-              country }}
+            <option *ngFor="let country of countries"
+                    [value]="country">
+              {{ country }}
             </option>
           </select>
         </div>
@@ -61,7 +62,10 @@
 <div class="card">
   <div class="card-header">
     <h3 class="title">Members</h3>
-    <label>(Showing {{ this.membersFiltered.length }} of {{ this.members.length }})</label>
+    <label>
+      (Showing {{ this.membersFiltered.length }} of
+      {{ this.members.length }} members)
+    </label>
   </div>
 
   <div class="card-main">
