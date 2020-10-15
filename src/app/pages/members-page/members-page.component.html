@@ -9,7 +9,8 @@
         <div class="form-group">
           <label for="filterLastName">Last name</label>
           <input id="filterLastName" type="search"
-                 [(ngModel)]="filters.lastName">
+                 [(ngModel)]="filters.lastName"
+                 (input)="onFiltersChange()">
         </div>
       </div>
 
@@ -17,7 +18,8 @@
         <div class="form-group">
           <label for="filterFirstName">First name</label>
           <input id="filterFirstName" type="search"
-                 [(ngModel)]="filters.firstName">
+                 [(ngModel)]="filters.firstName"
+                 (input)="onFiltersChange()">
         </div>
       </div>
 
@@ -59,7 +61,7 @@
 <div class="card">
   <div class="card-header">
     <h3 class="title">Members</h3>
-    {{ this.membersFiltered.length }} of {{ this.members.length }}
+    <label>(Showing {{ this.membersFiltered.length }} of {{ this.members.length }})</label>
   </div>
 
   <div class="card-main">
@@ -75,7 +77,8 @@
 
         <tr *ngFor="let member of members |
         filterCountry: filters.country |
-        filterDateSince: filters.dateSince">
+        filterDateSince: filters.dateSince |
+        filterName: { 'first-name': filters.firstName, 'last-name': filters.lastName }">
           <td>{{ member['last-name'] }}, {{ member['first-name'] }}</td>
           <td>{{ member['username'] }}</td>
           <td>{{ member['email'] }}</td>

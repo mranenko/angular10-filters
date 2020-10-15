@@ -10,6 +10,7 @@ import {MembersPageComponent} from './pages/members-page/members-page.component'
 /* app pipes */
 import {FilterCountryPipe} from './pipes/filter-country.pipe';
 import {FilterDateSincePipe} from './pipes/filter-date-since.pipe';
+import {FilterNamePipe} from './pipes/filter-name.pipe';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {FilterDateSincePipe} from './pipes/filter-date-since.pipe';
     MembersPageComponent,
     FilterCountryPipe,
     FilterDateSincePipe,
+    FilterNamePipe,
   ],
   imports: [
     AppRoutingModule,
@@ -27,6 +29,7 @@ import {FilterDateSincePipe} from './pipes/filter-date-since.pipe';
   providers: [
     FilterCountryPipe,
     FilterDateSincePipe,
+    FilterNamePipe,
   ],
   bootstrap: [AppComponent]
 })
