@@ -9,7 +9,7 @@ import {MembersPageComponent} from './pages/members-page/members-page.component'
 
 /* app pipes */
 import {FilterCountryPipe} from './pipes/filter-country.pipe';
-import {FilterDateSincePipe} from './pipes/filter-date-since.pipe';
+import {FilterMemberSincePipe} from './pipes/filter-member-since.pipe';
 import {FilterNamePipe} from './pipes/filter-name.pipe';
 
 
@@ -18,7 +18,7 @@ import {FilterNamePipe} from './pipes/filter-name.pipe';
     AppComponent,
     MembersPageComponent,
     FilterCountryPipe,
-    FilterDateSincePipe,
+    FilterMemberSincePipe,
     FilterNamePipe,
   ],
   imports: [
@@ -28,7 +28,7 @@ import {FilterNamePipe} from './pipes/filter-name.pipe';
   ],
   providers: [
     FilterCountryPipe,
-    FilterDateSincePipe,
+    FilterMemberSincePipe,
     FilterNamePipe,
   ],
   bootstrap: [AppComponent]

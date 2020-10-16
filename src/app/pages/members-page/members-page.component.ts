@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 /* app pipes */
 import {FilterCountryPipe} from '../../pipes/filter-country.pipe';
-import {FilterDateSincePipe} from '../../pipes/filter-date-since.pipe';
+import {FilterMemberSincePipe} from '../../pipes/filter-member-since.pipe';
 import {FilterNamePipe} from '../../pipes/filter-name.pipe';
 
 /* app services */
@@ -23,7 +23,7 @@ export class MembersPageComponent implements OnInit {
   filters = {};
 
   constructor(private filterCountryPipe: FilterCountryPipe,
-              private filterDateSincePipe: FilterDateSincePipe,
+              private filterMemberSincePipe: FilterMemberSincePipe,
               private filterNamePipe: FilterNamePipe,
               private countriesService: CountriesService,
               private membersService: MembersService) {
@@ -56,7 +56,7 @@ export class MembersPageComponent implements OnInit {
   private filtersApply(): void {
     this.membersFiltered = this.members;
     this.membersFiltered = this.filterCountryPipe.transform(this.membersFiltered, this.filters.country);
-    this.membersFiltered = this.filterDateSincePipe.transform(this.membersFiltered, this.filters.dateSince);
+    this.membersFiltered = this.filterMemberSincePipe.transform(this.membersFiltered, this.filters.memberSince);
     this.membersFiltered = this.filterNamePipe.transform(this.membersFiltered,
       {
         'first-name': this.filters.firstName,
@@ -67,7 +67,7 @@ export class MembersPageComponent implements OnInit {
   private filtersReset(): void {
     this.filters = {
       country: '',
-      dateSince: '',
+      memberSince: '',
       firstName: '',
       lastName: '',
     };
