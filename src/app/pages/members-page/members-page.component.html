@@ -82,12 +82,12 @@
         <tr *ngFor="let member of members |
         filterCountry: filters.country |
         filterMemberSince: filters.memberSince |
-        filterName: { 'first-name': filters.firstName, 'last-name': filters.lastName }">
-          <td>{{ member['last-name'] }}, {{ member['first-name'] }}</td>
-          <td>{{ member['username'] }}</td>
-          <td>{{ member['email'] }}</td>
-          <td>{{ member['country'] }}</td>
-          <td>{{ member['member-since'] | date: 'yyyy-MM-dd' }}</td>
+        filterName: { firstName: filters.firstName, lastName: filters.lastName }">
+          <td>{{ member.lastName }}, {{ member.firstName }}</td>
+          <td>{{ member.username }}</td>
+          <td>{{ member.email }}</td>
+          <td>{{ member.country }}</td>
+          <td>{{ member.memberSince | date: 'yyyy-MM-dd' }}</td>
         </tr>
       </table>
     </div>

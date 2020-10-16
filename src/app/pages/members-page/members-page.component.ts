@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
+/* app models */
+import {FilterMember} from '../../models/filter-member.model';
+import {Member} from '../../models/member.model';
+
 /* app pipes */
 import {FilterCountryPipe} from '../../pipes/filter-country.pipe';
 import {FilterMemberSincePipe} from '../../pipes/filter-member-since.pipe';
@@ -15,12 +19,12 @@ import {CountriesService} from '../../services/countries.service';
   templateUrl: './members-page.component.html',
 })
 export class MembersPageComponent implements OnInit {
-  countries: any[];
-  members: any[];
-  membersFiltered: any[];
+  countries: string[];
+  members: Member[];
+  membersFiltered: Member[];
 
   /* selected filters */
-  filters = {};
+  filters: FilterMember;
 
   constructor(private filterCountryPipe: FilterCountryPipe,
               private filterMemberSincePipe: FilterMemberSincePipe,
@@ -59,19 +63,13 @@ export class MembersPageComponent implements OnInit {
     this.membersFiltered = this.filterMemberSincePipe.transform(this.membersFiltered, this.filters.memberSince);
     this.membersFiltered = this.filterNamePipe.transform(this.membersFiltered,
       {
-        'first-name': this.filters.firstName,
-        'last-name': this.filters.lastName,
+        firstName: this.filters.firstName,
+        lastName: this.filters.lastName,
       });
   }
 
   private filtersReset(): void {
-    this.filters = {
-      country: '',
-      memberSince: '',
-      firstName: '',
-      lastName: '',
-    };
-
+    this.filters = new FilterMember();
     this.filtersApply();
   }
 }

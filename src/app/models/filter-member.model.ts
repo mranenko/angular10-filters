@@ -10,11 +10,4 @@ export class FilterMember {
     this.country = '';
     this.memberSince = '';
   }
-
-  reset(): void {
-    this.firstName = '';
-    this.lastName = '';
-    this.country = '';
-    this.memberSince = '';
-  }
 }

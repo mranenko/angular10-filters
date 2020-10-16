@@ -12,7 +12,7 @@ export class FilterMemberSincePipe implements PipeTransform {
     }
 
     return items.filter(item =>
-      (new Date(item['member-since']).getTime() >= new Date(memberSince).getTime())
+      (new Date(item.memberSince).getTime() >= new Date(memberSince).getTime())
     );
   }
 }

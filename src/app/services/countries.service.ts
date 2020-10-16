@@ -8,7 +8,7 @@ export class CountriesService {
   constructor() {
   }
 
-  getCountries(): any[] {
+  getCountries(): string[] {
     return [
       'Argentina',
       'Azerbaijan',
