@@ -13,13 +13,18 @@ import {FilterMemberSincePipe} from './pipes/filter-member-since.pipe';
 import {FilterNamePipe} from './pipes/filter-name.pipe';
 
 
+const appFilters = [
+  FilterCountryPipe,
+  FilterMemberSincePipe,
+  FilterNamePipe,
+];
+
+
 @NgModule({
   declarations: [
     AppComponent,
     MembersPageComponent,
-    FilterCountryPipe,
-    FilterMemberSincePipe,
-    FilterNamePipe,
+    ...appFilters,
   ],
   imports: [
     AppRoutingModule,
@@ -27,9 +32,7 @@ import {FilterNamePipe} from './pipes/filter-name.pipe';
     FormsModule,
   ],
   providers: [
-    FilterCountryPipe,
-    FilterMemberSincePipe,
-    FilterNamePipe,
+    ...appFilters,
   ],
   bootstrap: [AppComponent]
 })
